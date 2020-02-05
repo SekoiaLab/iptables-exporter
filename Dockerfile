@@ -3,8 +3,8 @@ RUN go get -v github.com/retailnext/iptables_exporter
 
 FROM debian:9-slim
 
-RUN apt update && \
-    apt install iptables -y && \
+RUN apt-get update && \
+    apt-get install iptables -y && \
     rm -fr /var/lib/apt/lists/* 
 
 COPY --from=builder /go/bin/iptables_exporter /usr/local/bin/iptables_exporter
